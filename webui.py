@@ -3,6 +3,7 @@ from webui_pages.utils import *
 from streamlit_option_menu import option_menu
 from webui_pages.dialogue.dialogue import dialogue_page, chat_box
 from webui_pages.knowledge_base.knowledge_base import knowledge_base_page
+from webui_pages.test_knowkedge_vactor.tkv import  tkv
 import os
 import sys
 from configs import VERSION
@@ -15,13 +16,13 @@ if __name__ == "__main__":
     is_lite = "lite" in sys.argv
 
     st.set_page_config(
-        "Langchain-Chatchat WebUI",
+        "青博智能大模型WebUI",
         os.path.join("img", "chatchat_icon_blue_square_v2.png"),
         initial_sidebar_state="expanded",
         menu_items={
             'Get Help': 'https://github.com/chatchat-space/Langchain-Chatchat',
             'Report a bug': "https://github.com/chatchat-space/Langchain-Chatchat/issues",
-            'About': f"""欢迎使用 Langchain-Chatchat WebUI {VERSION}！"""
+            'About': f"""欢迎使用 青博智能大模型 WebUI {VERSION}！"""
         }
     )
 
@@ -34,6 +35,10 @@ if __name__ == "__main__":
             "icon": "hdd-stack",
             "func": knowledge_base_page,
         },
+        "向量库搜索测试": {
+            "icon": "hdd-stack",
+            "func": tkv,  
+        }  
     }
 
     with st.sidebar:
